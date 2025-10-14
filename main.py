@@ -12,8 +12,10 @@ from app.routers import (
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
-    debug=settings.DEBUG
+    debug=settings.DEBUG,
+    redirect_slashes=False
 )
+
 
 
 app.add_middleware(

@@ -14,6 +14,7 @@ class ProductCategory(Base):
     code_id = Column(String, nullable=False)
     name = Column(String, nullable=False)
     note = Column(Text, nullable=False)
+    deleted_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
     
@@ -32,6 +33,7 @@ class Product(Base):
     category_id = Column(UUID(as_uuid=True), ForeignKey("product_categories.id"), nullable=False)
     description = Column(Text, nullable=False)
     note = Column(Text, nullable=True)
+    deleted_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now(), onupdate=func.now())
     

@@ -14,6 +14,7 @@ class PartnerCategory(Base):
     code_id = Column(String, nullable=False)
     name = Column(String, nullable=False)
     note = Column(Text, nullable=False)
+    deleted_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
     
@@ -39,6 +40,7 @@ class Partner(Base):
     pic_name = Column(String, nullable=True)
     pic_contact = Column(String, nullable=True)
     note = Column(Text, nullable=True)
+    deleted_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now(), onupdate=func.now())
     

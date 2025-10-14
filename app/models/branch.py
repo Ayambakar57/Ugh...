@@ -23,6 +23,7 @@ class Branch(Base):
     pic_name = Column(String, nullable=True)
     pic_contact = Column(String, nullable=True)
     note = Column(Text, nullable=True)
+    deleted_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now(), onupdate=func.now())
     

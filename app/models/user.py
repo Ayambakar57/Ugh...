@@ -15,5 +15,6 @@ class User(Base):
     username = Column(String, nullable=False, unique=True)
     enc_password = Column(String, nullable=False)
     last_login_at = Column(DateTime(timezone=True), nullable=True)
+    deleted_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=True, server_default=func.now(), onupdate=func.now())
