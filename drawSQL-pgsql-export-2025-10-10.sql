@@ -12,7 +12,10 @@ CREATE TABLE "companies"(
     "pic_name" TEXT NULL,
     "pic_contact" TEXT NULL,
     "note" TEXT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -25,7 +28,10 @@ CREATE TABLE "company_categories"(
     "code_id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "note" TEXT NOT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NOT NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -47,7 +53,10 @@ CREATE TABLE "branches"(
     "pic_name" TEXT NULL,
     "pic_contact" TEXT NULL,
     "note" TEXT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -69,7 +78,10 @@ CREATE TABLE "warehouses"(
     "pic_name" TEXT NULL,
     "pic_contact" TEXT NULL,
     "note" TEXT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -86,7 +98,10 @@ CREATE TABLE "products"(
     "category_id" UUID NOT NULL,
     "description" TEXT NOT NULL,
     "note" TEXT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -99,7 +114,10 @@ CREATE TABLE "partner_categories"(
     "code_id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "note" TEXT NOT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NOT NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -123,7 +141,10 @@ CREATE TABLE "partners"(
     "pic_name" TEXT NULL,
     "pic_contact" TEXT NULL,
     "note" TEXT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -170,7 +191,10 @@ CREATE TABLE "product_categories"(
     "code_id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "note" TEXT NOT NULL,
-    "created_at" TIMESTAMP(0) WITH
+    "deleted_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "created_at" TIMESTAMP(0)
+    WITH
         TIME zone NOT NULL,
         "updated_at" TIMESTAMP(0)
     WITH
@@ -185,6 +209,9 @@ CREATE TABLE "users"(
     "username" TEXT NOT NULL,
     "enc_password" TEXT NOT NULL,
     "last_login_at" TIMESTAMP(0) WITH
+        TIME zone NULL,
+        "deleted_at" TIMESTAMP(0)
+    WITH
         TIME zone NULL,
         "created_at" TIMESTAMP(0)
     WITH
