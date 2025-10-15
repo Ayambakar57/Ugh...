@@ -2,6 +2,7 @@ from pydantic import BaseModel, ConfigDict
 from uuid import UUID
 from datetime import datetime
 from typing import Optional
+from app.schemas.location import MasterProvinceResponse, MasterDistrictResponse, MasterSubdistrictResponse, MasterWardResponse, MasterZipcodeResponse
 
 
 class BranchBase(BaseModel):
@@ -17,6 +18,12 @@ class BranchBase(BaseModel):
     pic_name: Optional[str] = None
     pic_contact: Optional[str] = None
     note: Optional[str] = None
+    province: Optional[MasterProvinceResponse] = None
+    district: Optional[MasterDistrictResponse] = None
+    subdistrict: Optional[MasterSubdistrictResponse] = None
+    ward: Optional[MasterWardResponse] = None
+    
+
 
 
 class BranchCreate(BranchBase):
