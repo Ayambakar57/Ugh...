@@ -2,7 +2,7 @@ from typing import List, Optional
 from uuid import UUID
 from datetime import datetime
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.crud.base import CRUDBase
 from app.models.partner import Partner, PartnerCategory
@@ -14,7 +14,15 @@ from app.schemas.partner import (
 
 class CRUDPartner(CRUDBase[Partner, PartnerCreate, PartnerUpdate]):
     def get(self, db: Session, id: UUID) -> Optional[Partner]:
-        return db.query(self.model).filter(
+        return db.query(self.model).options(
+            joinedload(self.model.category),
+            joinedload(self.model.branch),
+            joinedload(self.model.warehouse),
+            joinedload(self.model.province),
+            joinedload(self.model.district),
+            joinedload(self.model.subdistrict),
+            joinedload(self.model.ward)
+        ).filter(
             self.model.id == id,
             self.model.deleted_at == None
         ).first()
@@ -22,7 +30,15 @@ class CRUDPartner(CRUDBase[Partner, PartnerCreate, PartnerUpdate]):
     def get_multi(
         self, db: Session, *, skip: int = 0, limit: int = 100
     ) -> List[Partner]:
-        return db.query(self.model).filter(
+        return db.query(self.model).options(
+            joinedload(self.model.category),
+            joinedload(self.model.branch),
+            joinedload(self.model.warehouse),
+            joinedload(self.model.province),
+            joinedload(self.model.district),
+            joinedload(self.model.subdistrict),
+            joinedload(self.model.ward)
+        ).filter(
             self.model.deleted_at == None
         ).offset(skip).limit(limit).all()
     

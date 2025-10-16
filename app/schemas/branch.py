@@ -18,10 +18,7 @@ class BranchBase(BaseModel):
     pic_name: Optional[str] = None
     pic_contact: Optional[str] = None
     note: Optional[str] = None
-    province: Optional[MasterProvinceResponse] = None
-    district: Optional[MasterDistrictResponse] = None
-    subdistrict: Optional[MasterSubdistrictResponse] = None
-    ward: Optional[MasterWardResponse] = None
+   
     
 
 
@@ -49,5 +46,10 @@ class BranchResponse(BranchBase):
     id: UUID
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
+    province: Optional[MasterProvinceResponse] = None
+    district: Optional[MasterDistrictResponse] = None
+    subdistrict: Optional[MasterSubdistrictResponse] = None
+    ward: Optional[MasterWardResponse] = None
+    zipcode: Optional[MasterZipcodeResponse] = None
     
     model_config = ConfigDict(from_attributes=True)
