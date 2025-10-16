@@ -2,7 +2,7 @@ from pydantic import BaseModel, ConfigDict
 from uuid import UUID
 from datetime import datetime
 from typing import Optional
-from app.schemas.location import MasterProvinceResponse, MasterDistrictResponse, MasterSubdistrictResponse, MasterWardResponse
+from app.schemas.location import MasterProvinceResponse, MasterDistrictResponse, MasterSubdistrictResponse, MasterWardResponse, MasterZipcodeResponse
 
 
 class WarehouseBase(BaseModel):
@@ -14,14 +14,12 @@ class WarehouseBase(BaseModel):
     district_id: Optional[UUID] = None
     subdistrict_id: Optional[UUID] = None
     ward_id: Optional[UUID] = None
+    zipcode_id: Optional[UUID] = None
     address: Optional[str] = None
     pic_name: Optional[str] = None
     pic_contact: Optional[str] = None
     note: Optional[str] = None
-    province: Optional[MasterProvinceResponse] = None
-    district: Optional[MasterDistrictResponse] = None
-    subdistrict: Optional[MasterSubdistrictResponse] = None
-    ward: Optional[MasterWardResponse] = None
+    
 
 
 class WarehouseCreate(WarehouseBase):
@@ -37,6 +35,7 @@ class WarehouseUpdate(BaseModel):
     district_id: Optional[UUID] = None
     subdistrict_id: Optional[UUID] = None
     ward_id: Optional[UUID] = None
+    zipcode_id: Optional[UUID] = None
     address: Optional[str] = None
     pic_name: Optional[str] = None
     pic_contact: Optional[str] = None
@@ -47,5 +46,10 @@ class WarehouseResponse(WarehouseBase):
     id: UUID
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
+    province: Optional[MasterProvinceResponse] = None
+    district: Optional[MasterDistrictResponse] = None
+    subdistrict: Optional[MasterSubdistrictResponse] = None
+    ward: Optional[MasterWardResponse] = None
+    zipcode: Optional[MasterZipcodeResponse] = None
     
     model_config = ConfigDict(from_attributes=True)
